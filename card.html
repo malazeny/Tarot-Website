@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarot Card Detail</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <h1 id="cardName"></h1>
+    <p id="cardDesc"></p>
+
+    <h3 id="instructionText"> Click the card for its description! </h3>
+
+    <script>
+window.addEventListener('DOMContentLoaded', () => {
+    const cardData = JSON.parse(localStorage.getItem("tarotCards"));
+
+    if (cardData && cardData.length) {
+        const row = document.createElement("div");
+        row.className = "card-row"; 
+
+        cardData.forEach(card => {
+            row.appendChild(createCardElement(card));
+        });
+
+        const container = document.createElement("div");
+        container.className = "card-display-container";
+        container.appendChild(row);
+
+        document.body.appendChild(container);
+    } else {
+        document.body.innerHTML = "<p>Not enough cards found. Please go back and draw cards first.</p>";
+    }
+
+    function createCardElement(card) {
+        const cardDiv = document.createElement("div");
+        cardDiv.className = "tarot-card";
+
+        const name = document.createElement("h2");
+        name.textContent = card.name;
+
+        const img = document.createElement("img");
+        img.src = `https://www.sacred-texts.com/tarot/pkt/img/${card.id}.jpg`;
+        img.alt = card.name;
+
+        cardDiv.appendChild(name);
+        cardDiv.appendChild(img);
+
+        cardDiv.addEventListener("click", () => {
+            document.getElementById("cardName").textContent = card.name;
+            document.getElementById("cardDesc").textContent = card.desc;
+
+            const instruction = document.getElementById("instructionText");
+             if (instruction) {
+             instruction.style.display = "none";
+             }
+        });
+
+        return cardDiv;
+    }
+});
+
+
+    </script>
+    <button id="backButton">← Back to Deck</button>
+
+    <script>
+        document.getElementById("backButton").addEventListener("click", () => {
+            window.location.href = "start.html"; 
+        });
+    </script>
+</body>
+</html>

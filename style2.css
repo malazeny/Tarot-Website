@@ -1,0 +1,88 @@
+@font-face {
+    font-family: "KenyanCoffee";
+    src: url("fonts/Kenyan Coffee Rg.otf");
+  }
+
+  @font-face {
+    font-family: "Akira";
+    src: url("fonts/Akira Expanded Demo.otf");
+  }
+
+body{ 
+    background-color: #1c0f2e;
+}
+
+h3{ 
+    color: white;
+    text-align: center;
+    font-family: KenyanCoffee;
+    font-size: 30px;
+}
+
+.card-display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 30px;
+}
+
+.card-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.tarot-card {
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    background: #f9f9f9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.tarot-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.tarot-card:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: transform 0.2s;
+}
+#cardName{
+    font-size: 40px; 
+    color: white;
+    text-align: center;
+    font-family: KenyanCoffee;
+}
+
+#cardDesc {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+#backButton {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+/* #backButton:hover {
+    background-color: rgb(133, 104, 133);
+    color: rgb(60, 44, 60);
+} */
